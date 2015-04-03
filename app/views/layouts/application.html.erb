@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -28,12 +29,16 @@
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+</div>
+<div class="upper"></div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
 <div class="container">
   <div class="row">
+    <div style="height: 50px; margin-left: 2.5%;">
+        <p class="notice h4 text-warning"><%= notice %></p>
+        <p class="alert h4 text-danger"><%= alert %></p>
+    </div>
     <div class="col-md-8">
       <%= yield %>
     </div>
