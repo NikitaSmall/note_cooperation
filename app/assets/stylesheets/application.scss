@@ -16,3 +16,46 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+$link-color: #3bbfce;
+$link-hover-color: darken($link-color, 15%);
+
+ul li a{
+  color: #000000;
+  text-transform: none;
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+ul li.active a{
+  color: #4AA48D;
+}
+
+ul li:hover a{
+
+}
+
+a{
+  color: #666;
+}
+
+a.active{
+  color: #4AA48D;
+}
+
+a.hover{
+  color: #000000;
+}
+
+a span {
+  color: #ffffff;
+}
+
+td a {
+  margin-top: 30%;
+}
+
+.rating{
+  margin-top: 180%;
+}
