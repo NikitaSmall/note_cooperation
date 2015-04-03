@@ -10,6 +10,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <li role="navigation"><%= link_to "Выйти", destroy_user_session_path, :method => :delete, class: "small" %></li>
 
     <%= yield %>
 
