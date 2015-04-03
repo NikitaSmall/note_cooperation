@@ -19,7 +19,20 @@
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </div>
+    <div class="field">
+      <%= f.label :tags %><br>
+      <%= f.text_field :tags, class: "form-control", id: "tags" %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+    $.get('/tags.json', function(data) {
+        $('#question_tags').select2({
+            tags: true,
+            tokenSeparators: [",", " "]
+        });
+    });
+</script>

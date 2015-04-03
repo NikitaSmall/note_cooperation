@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @tags = get_current_tag_name
   end
 
   # GET /questions/1/edit

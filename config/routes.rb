@@ -3,6 +3,7 @@ NikitaOverflow::Application.routes.draw do
   devise_for :users
   root 'questions#index'
 
+  resources :tags
   resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.
