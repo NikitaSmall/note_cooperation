@@ -5,6 +5,7 @@ NikitaOverflow::Application.routes.draw do
 
   resources :tags
   resources :questions
+  post 'answers' => 'answers#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,22 +1,11 @@
-<%= form_for(@answer) do |f| %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this question from being saved:</h2>
+<%= form_for Answer.new do |f| %>
+        <div class="form-group">
+          <%= f.label  :text, 'Комментарий' %><br>
+          <%= f.text_area :text, class: 'form-control', placeholder: 'Введите ваш комментарий' %>
+        </div>
+        <%= f.hidden_field :question_id, value: @question.id %>
 
-      <ul>
-      <% @answer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        <div>
+          <%= f.submit 'Отправить комментарий', class: 'btn btn-primary' %>
+        </div>
 <% end %>

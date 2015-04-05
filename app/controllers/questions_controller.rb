@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @answers = Answer.all
+    @answers = Answer.where(question_id: @question.id).order(created_at: :desc)
   end
 
   # GET /questions/new

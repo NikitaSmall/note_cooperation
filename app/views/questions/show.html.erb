@@ -16,6 +16,19 @@
     <% end %>
 <% end %>
 
-<%= render partial: "answers/answers", object: (answers=@answers) %>
+    <%= render partial: "answers/answers", object: (answers=@answers) %>
+<div class="col-md-offset-1 col-md-10">
+    <% if user_signed_in? %>
+        <%= render partial: "answers/form" %>
+    <% else %>
+        <p>
+          <%= link_to "Войдите", new_user_session_path, :method => :get, class: "" %> или
+          <%= link_to "зарегистрируйтесь", new_user_registration_path, :method => :get, class: "" %>,
+          чтобы ответить на вопрос.
+        </p>
+    <% end %>
+</div>
+
+
 
 
