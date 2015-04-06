@@ -9,6 +9,13 @@
           <p class="text-right">
             <%= answer.created_at.strftime "%F" %>
           </p>
+          <% if user_signed_in? %>
+            <% if current_user.id == answer.user_id %>
+              <p class="text-right">
+                <%= link_to 'Удалить', "/answer/#{answer.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger small' %>
+              </p>
+            <% end %>
+          <% end %>
         </div>
     <% end %>
 <% else %>
