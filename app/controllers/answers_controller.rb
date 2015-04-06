@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_filter :set_answer, only: [:destroy]
+  before_action :authenticate_user!
 
   # POST /answer
   # POST /answer.json
@@ -16,6 +18,15 @@ class AnswersController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # DELETE /answer/1
+  def destroy
+    question = @answer.question
+    @answer.destroy
+    respond_to do |format|
+      format.html {redirect_to question, notice: 'Ответ был удалён'}
     end
   end
 
