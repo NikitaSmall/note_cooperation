@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   include Solutions
-  before_filter :set_answer, only: [:destroy, :mark_answer_as_solution]
+  before_filter :set_answer, only: [:destroy, :mark_answer_as_solution, :unmark_answer_as_solution]
   before_action :authenticate_user!
 
   # POST /answer
@@ -41,6 +41,19 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to question, notice: 'Ответ получен'}
+    end
+  end
+
+  # PUT /answer/no/1
+  def unmark_answer_as_solution
+    question = @answer.question
+    @answer.solution = false
+    @answer.save
+
+    mark_question_unsolved question.id
+
+    respond_to do |format|
+      format.html {redirect_to question, notice: 'Ответ снят'}
     end
   end
 

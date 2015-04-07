@@ -17,6 +17,9 @@
                 <% if current_user.id == @question.user_id && !@question.solved %>
                     <%= link_to 'Отметить как решение', answered_path(answer), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-xs' %> |
                 <% end %>
+                <% if current_user.id == @question.user_id && answer.solution %>
+                    <%= link_to 'Отменить решение', not_answered_path(answer), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' %> |
+                <% end %>
                 <% if current_user.id == @question.user_id || current_user.id == answer.user_id %>
 
                     <%= link_to 'Удалить', delete_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> |
