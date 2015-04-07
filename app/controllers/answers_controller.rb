@@ -25,6 +25,10 @@ class AnswersController < ApplicationController
   # DELETE /answer/1
   def destroy
     question = @answer.question
+    if @answer.solution
+      question.solved = false
+      question.save
+    end
     @answer.destroy
     respond_to do |format|
       format.html {redirect_to question, notice: 'Ответ был удалён'}
