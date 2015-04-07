@@ -1,4 +1,11 @@
-<h2><%= @question.title %> <p class="text-right"><%= @question.rating %></p></h2>
+<h2>
+  <% if @question.solved %>
+      <abbr title="Этот вопрос решён" class="initialism">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      </abbr>
+  <% end %>
+  <%= @question.title %> <p class="text-right"><%= @question.rating %></p>
+</h2>
 
 
 <div class="text-justify">

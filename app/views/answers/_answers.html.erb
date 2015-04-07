@@ -2,7 +2,13 @@
     <h2>Ответы:</h2>
     <% answers.each do |answer| %>
         <div class="col-md-offset-1 col-md-10">
-          <h3><%= answer.user.username %> ответил:</h3>
+          <h3>
+            <% if answer.solution %>
+                <abbr title="Этот ответ помог решить задачу" class="initialism">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                </abbr>
+            <% end %>
+            <%= answer.user.username %> ответил:</h3>
           <p class="text-justify">
             <%= answer.text %>
           </p>
@@ -12,7 +18,7 @@
 
                     <%= link_to 'Удалить', "/answer/#{answer.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> |
 
-              <% end %>
+                <% end %>
               <% end %>
           <%= answer.created_at.strftime "%F" %>
           </p>

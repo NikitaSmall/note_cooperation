@@ -8,6 +8,15 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
+        <% if question.solved %>
+        <td>
+          <div class="rating text-center">
+            <abbr title="Этот вопрос решён" class="initialism">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            </abbr>
+          </div>
+        </td>
+        <% end %>
         <td><div class="rating"><%= question.rating %></div></td>
         <td>
           <h4><%= link_to question.title, question %></h4>
