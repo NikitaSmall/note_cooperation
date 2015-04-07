@@ -14,9 +14,12 @@
           </p>
           <p class="text-right">
             <% if user_signed_in? %>
-                <% if current_user.id == answer.user_id || current_user.id == @question.user_id %>
+                <% if current_user.id == @question.user_id && !@question.solved %>
+                    <%= link_to 'Отметить как решение', answered_path(answer), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-xs' %> |
+                <% end %>
+                <% if current_user.id == @question.user_id || current_user.id == answer.user_id %>
 
-                    <%= link_to 'Удалить', "/answer/#{answer.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> |
+                    <%= link_to 'Удалить', delete_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> |
 
                 <% end %>
               <% end %>

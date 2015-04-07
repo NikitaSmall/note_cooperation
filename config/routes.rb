@@ -7,7 +7,8 @@ NikitaOverflow::Application.routes.draw do
   resources :questions
 
   post 'answers' => 'answers#create'
-  delete "answer/:id" => 'answers#destroy'
+  delete 'answer/:id' => 'answers#destroy', as: 'delete_answer'
+  put 'answer/yes/:id' => 'answers#mark_answer_as_solution', as: 'answered'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
