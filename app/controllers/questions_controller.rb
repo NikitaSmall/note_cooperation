@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :raise_rating, :down_rating]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /questions
@@ -22,6 +22,24 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+  end
+
+  # PUT /questions/rise/1
+  def raise_rating
+    @question.rating += 1
+    @question.save
+    respond_to do |format|
+      format.html {redirect_to @question, notice: 'Рейтинг вопроса успешно поднят'}
+    end
+  end
+
+  # PUT /questions/down/1
+  def down_rating
+    @question.rating -= 1
+    @question.save
+    respond_to do |format|
+      format.html {redirect_to @question, notice: 'Рейтинг вопроса успешно опущен'}
+    end
   end
 
   # POST /questions

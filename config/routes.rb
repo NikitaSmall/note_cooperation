@@ -5,6 +5,8 @@ NikitaOverflow::Application.routes.draw do
 
   resources :tags
   resources :questions
+  put 'questions/rise/:id' => 'questions#raise_rating', as: 'raise_rating'
+  put 'questions/down/:id' => 'questions#down_rating', as: 'down_rating'
 
   post 'answers' => 'answers#create'
   delete 'answer/:id' => 'answers#destroy', as: 'delete_answer'
