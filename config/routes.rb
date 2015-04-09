@@ -11,7 +11,10 @@ NikitaOverflow::Application.routes.draw do
   post 'answers' => 'answers#create'
   delete 'answer/:id' => 'answers#destroy', as: 'delete_answer'
   put 'answer/yes/:id' => 'answers#mark_answer_as_solution', as: 'answered'
-  put'answer/no/:id' => 'answers#unmark_answer_as_solution', as: 'not_answered'
+  put 'answer/no/:id' => 'answers#unmark_answer_as_solution', as: 'not_answered'
+
+  put 'answer/up/:id' => 'answers#up_rating', as: 'answer_up'
+  put 'answer/down/:id' => 'answers#down_rating', as: 'answer_down'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

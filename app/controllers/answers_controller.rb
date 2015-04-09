@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   include Solutions
-  before_filter :set_answer, only: [:destroy, :mark_answer_as_solution, :unmark_answer_as_solution]
+  before_filter :set_answer, only: [:destroy, :mark_answer_as_solution, :unmark_answer_as_solution, :up_rating, :down_rating]
   before_action :authenticate_user!
 
   # POST /answer
@@ -58,6 +58,26 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to question, notice: 'Ответ снят'}
+    end
+  end
+
+  # PUT /answer/up/1
+  def up_rating
+    @answer.rating += 1
+    @answer.save
+
+    respond_to do |format|
+      format.html {redirect_to @answer.question, notice: 'Ответ снят'}
+    end
+  end
+
+  # PUT /answer/down/1
+  def down_rating
+    @answer.rating -= 1
+    @answer.save
+
+    respond_to do |format|
+      format.html {redirect_to @answer.question, notice: 'Ответ снят'}
     end
   end
 

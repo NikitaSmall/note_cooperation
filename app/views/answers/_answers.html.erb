@@ -8,7 +8,15 @@
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                 </abbr>
             <% end %>
-            <%= answer.user.username %> ответил:</h3>
+            <%= answer.rating %> | <%= answer.user.username %> ответил:</h3>
+          <div class="text-left" style="float: left; width: 50px;">
+            <%= link_to answer_up_path(answer), method: :put, class: 'btn btn-success' do %>
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            <% end %> <br />
+            <%= link_to answer_down_path(answer), method: :put, class: 'btn btn-danger', style: 'margin-top: 10px;' do %>
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            <% end %>
+          </div>
           <p class="text-justify">
             <%= answer.text %>
           </p>
