@@ -26,8 +26,8 @@ class QuestionsController < ApplicationController
 
   # PUT /questions/rise/1
   def raise_rating
-    @question.rating += 1
-    @question.save
+    UserMarks.up_question_rating @question
+
     respond_to do |format|
       format.html {redirect_to @question, notice: 'Рейтинг вопроса успешно поднят'}
     end
@@ -35,8 +35,8 @@ class QuestionsController < ApplicationController
 
   # PUT /questions/down/1
   def down_rating
-    @question.rating -= 1
-    @question.save
+    UserMarks.down_question_rating @question
+
     respond_to do |format|
       format.html {redirect_to @question, notice: 'Рейтинг вопроса успешно опущен'}
     end

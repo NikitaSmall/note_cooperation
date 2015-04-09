@@ -26,4 +26,28 @@ class UserMarks < ActiveRecord::Base
       mark.save
     end
   end
+
+  def self.down_question_rating (question)
+    mark = UserMarks.where(question_id: question.id, user_id: question.user.id)
+
+    if mark.count == 0
+      question.rating -= 1
+      question.save
+
+      mark = UserMarks.new(question_id: question.id, user_id: question.user.id)
+      mark.save
+    end
+  end
+
+  def self.up_question_rating (question)
+    mark = UserMarks.where(question_id: question.id, user_id: question.user.id)
+
+    if mark.count == 0
+      question.rating += 1
+      question.save
+
+      mark = UserMarks.new(question_id: question.id, user_id: question.user.id)
+      mark.save
+    end
+  end
 end
