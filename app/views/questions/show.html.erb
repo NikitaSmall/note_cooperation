@@ -6,17 +6,18 @@
   <% end %>
   <%= @question.title %> <p class="text-right"><%= @question.rating %></p>
 </h2>
-
-<div class="text-left" style="float: left; width: 50px;">
-  <%= link_to raise_rating_path(@question), method: :put, class: 'btn btn-success' do %>
-      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-  <% end %> <br />
-  <%= link_to down_rating_path(@question), method: :put, class: 'btn btn-danger', style: 'margin-top: 10px;' do %>
-      <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-  <% end %>
-</div>
-<div class="text-justify" style="float: left;">
-  <%= @question.text %>
+<div>
+    <div class="text-left" style="float: left; width: 50px;">
+      <%= link_to raise_rating_path(@question), method: :put, class: 'btn btn-success' do %>
+          <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <% end %> <br />
+      <%= link_to down_rating_path(@question), method: :put, class: 'btn btn-danger', style: 'margin-top: 10px;' do %>
+          <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+      <% end %>
+    </div>
+    <div class="text-justify" style="float: right;">
+      <%= @question.text %>
+    </div>
 </div>
 
 <div class="text-right">

@@ -1,5 +1,6 @@
 NikitaOverflow::Application.routes.draw do
 
+  get 'statistic' => 'admin/statistic#index', as: 'statistic'
   devise_for :users
   root 'questions#index'
 
