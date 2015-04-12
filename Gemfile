@@ -17,6 +17,11 @@ gem 'devise'
 
 gem "select2-rails"
 
+# gems for admin works
+gem 'groupdate'
+
+gem 'chartkick'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

@@ -1,3 +1,1 @@
-<%= @hello %>
-
-<%= link_to 'К Главной', root_path, class: 'btn btn-default' %>
+<%= line_chart User.count(group: 'DATE(created_at)') %>
