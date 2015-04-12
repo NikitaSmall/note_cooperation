@@ -3,6 +3,7 @@ class Admin::StatisticController < ApplicationController
 
   # get /admin/statistic
   def index
-    @hello = 'Привет!'
+
+    @question_rating = Question.select('user_id, sum(rating) as rating').group(:user_id)
   end
 end
