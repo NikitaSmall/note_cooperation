@@ -1,6 +1,35 @@
 <h2 class="text-center">Регистрация пользователей</h2>
 <%= line_chart User.count(group: 'DATE(created_at)') %>
 
-<% @question_rating.each do |rating| %>
-    <%= rating.user.username %> : <%= rating.rating %>
-<% end %>
+<h2 class="text-center">Рейтинг пользователей</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>
+        Position
+      </td>
+      <td>
+        User
+      </td>
+      <td>
+        Rating
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+  <% i = 1; @question_rating.each do |rating| %>
+  <tr>
+    <td>
+      <%= i %> <% i += 1 %>
+    </td>
+    <td>
+      <%= rating.user.username %>
+    </td>
+    <td>
+      <%= rating.rating %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
