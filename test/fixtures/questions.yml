@@ -5,9 +5,11 @@ one:
   text: MyText
   rating: 1
   solved: false
+  user_id: 1
 
 two:
   title: MyString
   text: MyText
   rating: 1
   solved: false
+  user_id: 1

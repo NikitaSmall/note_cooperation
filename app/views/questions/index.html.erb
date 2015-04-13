@@ -21,7 +21,7 @@
         <% end %>
         <td><div class="rating"><%= question.rating %></div></td>
         <td>
-          <h4><%= link_to question.title, question %></h4>
+          <h4><%= link_to question.title, question, class: 'link' %></h4>
           <%= truncate(strip_tags(question.text), length: 80) %>
         </td>
         <% if user_signed_in? %>
