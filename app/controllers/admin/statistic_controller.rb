@@ -14,6 +14,13 @@ class Admin::StatisticController < ApplicationController
     end
   end
 
+  # get /admin/users
+  def user_statistic
+    @question_rating = Question.group(:user).count
+
+    @answers_rating = Answer.select('user, count(rating) as rating').group(:user_id)
+  end
+
   protected
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
