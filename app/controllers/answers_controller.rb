@@ -63,7 +63,7 @@ class AnswersController < ApplicationController
 
   # PUT /answer/up/1
   def up_rating
-    UserMarks.up_answer_rating @answer
+    UserMarks.up_answer_rating @answer, current_user
 
     respond_to do |format|
       format.html {redirect_to @answer.question}
@@ -72,7 +72,7 @@ class AnswersController < ApplicationController
 
   # PUT /answer/down/1
   def down_rating
-    UserMarks.down_answer_rating @answer
+    UserMarks.down_answer_rating @answer, current_user
 
     respond_to do |format|
       format.html {redirect_to @answer.question}
