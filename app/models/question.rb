@@ -15,4 +15,14 @@ class Question < ActiveRecord::Base
     end
     @question_rating
   end
+
+  def self.get_user_summary_rating
+    @question_rating = Question.select('user_id, sum(rating) as rating').group(:user_id).limit(10)
+
+    @question_rating.map do |r|
+      answer = Answer.select('sum(rating) as rating').where(user_id: r.user_id)
+      r.rating += answer.first.rating unless answer.first.rating.nil?
+    end
+    @question_rating
+  end
 end

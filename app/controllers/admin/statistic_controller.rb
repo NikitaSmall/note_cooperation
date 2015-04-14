@@ -6,12 +6,7 @@ class Admin::StatisticController < ApplicationController
   # get /admin/statistic
   def index
 
-    @question_rating = Question.select('user_id, sum(rating) as rating').group(:user_id)
-
-    @question_rating.map do |r|
-      answer = Answer.select('sum(rating) as rating').where(user_id: r.user_id)
-      r.rating += answer.first.rating unless answer.first.rating.nil?
-    end
+    @question_rating = Question.get_user_summary_rating
   end
 
   # get /admin/users
