@@ -16,9 +16,8 @@ class Admin::StatisticController < ApplicationController
 
   # get /admin/users
   def user_statistic
-    @question_rating = Question.group(:user).count
-
-    @answers_rating = Answer.select('user, count(rating) as rating').group(:user_id)
+    @question_rating = Question.get_user_statistic
+    @answers_rating = Answer.get_user_statistic
   end
 
   protected
