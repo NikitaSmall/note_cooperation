@@ -33,6 +33,7 @@ class AnswersController < ApplicationController
     @answer.destroy
     respond_to do |format|
       format.html {redirect_to question, notice: 'Ответ был удалён'}
+      format.js {}
     end
   end
 
