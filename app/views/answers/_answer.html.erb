@@ -1,0 +1,36 @@
+<div class="col-md-offset-1 col-md-10" id="answer">
+  <h3>
+    <% if answer.solution %>
+        <abbr title="Этот ответ помог решить задачу" class="initialism">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </abbr>
+    <% end %>
+    <%= answer.rating %> | <%= answer.user.username %> ответил:</h3>
+  <div class="text-left" style="float: left; width: 50px;">
+    <%= link_to answer_up_path(answer), method: :put, class: 'btn btn-success' do %>
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    <% end %> <br />
+    <%= link_to answer_down_path(answer), method: :put, class: 'btn btn-danger', style: 'margin-top: 10px;' do %>
+        <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+    <% end %>
+  </div>
+  <p class="text-justify well" style="margin-left: 50px;">
+    <%= answer.text %>
+  </p>
+  <p class="text-right">
+    <% if user_signed_in? %>
+        <% if current_user.id == answer.question.user_id && !answer.question.solved %>
+            <%= link_to 'Отметить как решение', answered_path(answer), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-xs' %> |
+        <% end %>
+        <% if current_user.id == answer.question.user_id && answer.solution %>
+            <%= link_to 'Отменить решение', not_answered_path(answer), method: :put, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-xs' %> |
+        <% end %>
+        <% if current_user.id == answer.question.user_id || current_user.id == answer.user_id %>
+
+            <%= link_to 'Удалить', delete_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %> |
+
+        <% end %>
+    <% end %>
+    <%= answer.created_at.strftime "%F" %>
+  </p>
+</div>

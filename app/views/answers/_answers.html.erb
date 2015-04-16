@@ -1,7 +1,7 @@
 <% if answers.count > 0 %>
     <h2>Ответы:</h2>
     <% answers.each do |answer| %>
-        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-offset-1 col-md-10" id="answer">
           <h3>
             <% if answer.solution %>
                 <abbr title="Этот ответ помог решить задачу" class="initialism">

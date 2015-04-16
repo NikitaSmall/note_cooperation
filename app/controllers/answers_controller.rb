@@ -14,6 +14,7 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         format.html { redirect_to @answer.question, notice: 'Answer was successfully created.' }
+        format.js {}
         format.json { render action: 'show', status: :created, location: @question }
       else
         format.html { render action: 'new' }

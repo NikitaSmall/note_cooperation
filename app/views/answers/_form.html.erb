@@ -1,4 +1,4 @@
-<%= form_for Answer.new do |f| %>
+<%= form_for Answer.new, remote: true do |f| %>
         <div class="form-group">
           <%= f.label  :text, 'Комментарий' %><br>
           <%= f.text_area :text, class: 'form-control', placeholder: 'Введите ваш комментарий' %>

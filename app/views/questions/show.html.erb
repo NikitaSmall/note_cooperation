@@ -31,7 +31,9 @@
     <% end %>
 <% end %>
 
-    <%= render partial: "answers/answers", object: (answers=@answers) %>
+    <div id="answers">
+      <%= render partial: "answers/answers", object: (answers=@answers) %>
+    </div>
 <div class="col-md-offset-1 col-md-10">
     <% if user_signed_in? %>
         <%= render partial: "answers/form" %>
