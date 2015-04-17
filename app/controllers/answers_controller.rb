@@ -69,6 +69,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @answer.question}
+      format.js {}
     end
   end
 
@@ -78,6 +79,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @answer.question}
+      format.js {}
     end
   end
 
