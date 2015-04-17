@@ -30,6 +30,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @question, notice: 'Рейтинг вопроса успешно поднят'}
+      format.js {}
     end
   end
 
@@ -39,6 +40,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @question, notice: 'Рейтинг вопроса успешно опущен'}
+      format.js {}
     end
   end
 

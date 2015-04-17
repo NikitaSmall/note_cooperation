@@ -4,14 +4,14 @@
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
       </abbr>
   <% end %>
-  <%= @question.title %> <p class="text-right"><%= @question.rating %></p>
+  <%= @question.title %> <p class="text-right" id="q_rating"><%= @question.rating %></p>
 </h2>
 <div>
     <div class="text-left" style="float: left; width: 50px;">
-      <%= link_to raise_rating_path(@question), method: :put, class: 'btn btn-success' do %>
+      <%= link_to raise_rating_path(@question), remote: true, method: :put, class: 'btn btn-success' do %>
           <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
       <% end %> <br />
-      <%= link_to down_rating_path(@question), method: :put, class: 'btn btn-danger', style: 'margin-top: 10px;' do %>
+      <%= link_to down_rating_path(@question), remote: true, method: :put, class: 'btn btn-danger', style: 'margin-top: 10px;' do %>
           <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
       <% end %>
     </div>
