@@ -1,2 +1,5 @@
-$("#answer").hide("slow");
+$('#answer-<%= @answer.id %>').fadeOut();
 $("#answer_text").val('');
+<% if Answer.where(question_id: @answer.question.id).count <= 0 %>
+    $('#answers_head').html('Ответов пока нет');
+<% end %>
