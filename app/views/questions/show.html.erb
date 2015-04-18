@@ -15,9 +15,10 @@
           <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
       <% end %>
     </div>
-    <div class="text-justify well" style="margin-left: 50px;">
-      <%= @question.text %>
+    <div class="text-justify well" style="height: 100%; margin-left: 50px;">
+      <%= @question.text.html_safe %>
     </div>
+  <hr />
 </div>
 
 <div class="text-right">

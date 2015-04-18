@@ -22,6 +22,9 @@ gem 'groupdate'
 
 gem 'chartkick'
 
+# gem for good edit field
+gem 'bootsy'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

@@ -10,6 +10,7 @@
  *
  *= require select2
  *= require select2-bootstrap
+ *= require bootsy
  *= require_self
  *= require_tree .
  */
@@ -62,4 +63,13 @@ td a {
 
 .upper{
   margin-top: 50px;
+}
+
+.well:after
+{
+  content: ".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
 }

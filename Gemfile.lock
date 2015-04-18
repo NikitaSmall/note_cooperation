@@ -33,7 +33,16 @@ GEM
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootsy (2.1.0)
+      carrierwave (~> 0.10)
+      mini_magick (~> 4.0)
+      remotipart (~> 1.2)
     builder (3.1.4)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     chartkick (1.3.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -66,6 +75,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_magick (4.2.3)
     minitest (4.7.5)
     multi_json (1.11.0)
     mysql2 (0.3.17)
@@ -90,6 +100,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     sass (3.2.19)
@@ -133,6 +144,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
+  bootsy
   chartkick
   coffee-rails (~> 4.0.0)
   devise
