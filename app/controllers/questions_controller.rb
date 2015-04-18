@@ -5,7 +5,12 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all.order(created_at: :desc)
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag]).order(created_at: :desc)
+    else
+      @questions = Question.all.order(created_at: :desc)
+    end
+
   end
 
   # GET /questions/1
@@ -17,7 +22,6 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    @tags = get_current_tag_name
   end
 
   # GET /questions/1/edit
@@ -48,6 +52,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @question.topic_list.add(params[:tags])
     @question.user = current_user
     @question.rating = 0
     @question.solved = false
@@ -95,6 +100,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :text, :rating, :solved, :bootsy_image_gallery_id)
+      params.require(:question).permit(:title, :text, :rating, :solved, :bootsy_image_gallery_id, :tag_list)
     end
 end

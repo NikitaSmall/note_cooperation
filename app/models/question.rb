@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
   include Bootsy::Container
+  acts_as_taggable
+  acts_as_taggable_on :topics
 
   has_many :answers, dependent: :destroy
   has_and_belongs_to_many :tags

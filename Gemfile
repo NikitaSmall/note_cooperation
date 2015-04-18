@@ -25,6 +25,9 @@ gem 'chartkick'
 # gem for good edit field
 gem 'bootsy'
 
+# gemm for powerful tags
+gem 'acts-as-taggable-on', '~> 3.4'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

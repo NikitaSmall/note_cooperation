@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -19,20 +19,11 @@
     <%= f.label :text %><br>
     <%= f.bootsy_area :text, class: 'form-control', style: 'height: 500px;' %>
   </div>
-    <div class="field">
-      <%= f.label :tags %><br>
-      <%= f.text_field :tags, class: "form-control", id: "tags" %>
+    <div class="form-group">
+      <%= f.label :tag_list %><br>
+      <%= f.text_field :tag_list, class: "form-control" %>
     </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-<script>
-    $.get('/tags.json', function(data) {
-        $('#question_tags').select2({
-            tags: true,
-            tokenSeparators: [",", " "]
-        });
-    });
-</script>

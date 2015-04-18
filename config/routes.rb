@@ -3,6 +3,8 @@ NikitaOverflow::Application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get 'statistic' => 'admin/statistic#index', as: 'statistic'
   get 'admin/users' => 'admin/statistic#user_statistic', as: 'user_statistic'
+  get 'tags/:tag', to: 'questions#index', as: :tag
+
   devise_for :users
   root 'questions#index'
 
