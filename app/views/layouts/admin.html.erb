@@ -47,6 +47,11 @@
         <li <% if params[:action] == 'index' %>class="active" <% end %>><%= link_to 'Статистика', statistic_path, method: :get %></li>
         <li <% if params[:action] == 'user_statistic' %>class="active" <% end %>><%= link_to 'По пользователям', user_statistic_path, method: :get %></li>
       </ul>
+      <div id="tag_cloud">
+        <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% end %>
+      </div>
     </div>
     <div class="col-sm-9 col-md-10 main">
       <%= yield %>
