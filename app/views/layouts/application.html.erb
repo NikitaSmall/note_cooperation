@@ -56,7 +56,17 @@
                 <% end %>
               </ul>
         <% end %>
+      <% if @better_tags.count > 0 %>
+          <hr />
+          <h3>Популярные теги:</h3>
+          <ul class="nav nav-pills nav-stacked">
+            <% @better_tags.each do |tag| %>
+                <li><%= link_to tag.name, tag_path(tag.name), class: "info" %></li>
+            <% end %>
+          </ul>
+      <% end %>
     </div>
+
   </div>
 </div>
 

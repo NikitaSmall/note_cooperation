@@ -24,6 +24,7 @@ gem 'chartkick'
 
 # gem for good edit field
 gem 'bootsy'
+gem "wysiwyg-rails"
 
 # gemm for powerful tags
 gem 'acts-as-taggable-on', '~> 3.4'

@@ -7,10 +7,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :get_current_tag_name
   before_action :get_last_questions
+  before_action :get_better_tag
 
   protected
   def get_last_questions
     @last_questions = get_new_questions
+  end
+
+  def get_better_tag
+    @better_tags = ActsAsTaggableOn::Tag.most_used(3)
   end
 
   def configure_permitted_parameters
