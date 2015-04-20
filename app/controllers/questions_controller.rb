@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
   def index
     if params[:tag]
       @questions = Question.tagged_with(params[:tag]).order(created_at: :desc)
+      @related_tags = Question.related_tags(params[:tag])
     else
       @questions = Question.all.order(created_at: :desc)
     end

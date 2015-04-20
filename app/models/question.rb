@@ -29,4 +29,16 @@ class Question < ActiveRecord::Base
     end
     @question_rating
   end
+
+  def self.related_tags(tag)
+    questions = Question.tagged_with(tag).order(created_at: :desc)
+    tag_hash = Hash.new(0)
+
+    questions.each do |question|
+      question.tag_list.each do |tag|
+        tag_hash[tag] += 1
+      end
+    end
+    tag_hash.delete_if {|t, count| count <= 1 || t == tag}
+  end
 end
