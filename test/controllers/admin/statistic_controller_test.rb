@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'test_helper'test
 
 class Admin::StatisticControllerTest < ActionController::TestCase
   # test "the truth" do

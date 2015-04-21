@@ -4,7 +4,7 @@ require 'rails/test_help'
 
 
 class ActiveSupport::TestCase
-  include Devise::TestHelpers
+  #include Devise::TestHelpers
 
   ActiveRecord::Migration.check_pending!
 
@@ -15,7 +15,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def setup
-    sign_in users(:one)
+    #sign_in :user, users(:one)
   end
 
   # Add more helper methods to be used by all tests here...
