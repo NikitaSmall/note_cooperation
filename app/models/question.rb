@@ -39,6 +39,6 @@ class Question < ActiveRecord::Base
         tag_hash[tag] += 1
       end
     end
-    tag_hash.delete_if {|t, count| count <= 1 || t == tag}
+    tag_hash.delete_if {|t, count| count <= 1 || t == tag.downcase }
   end
 end

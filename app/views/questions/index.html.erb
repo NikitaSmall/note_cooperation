@@ -1,12 +1,14 @@
 <h1>Список вопросов <%= link_to 'Добавить вопрос', new_question_path, class: 'btn btn-info', style: 'margin-left: 30px;' %></h1>
 <% if !@related_tags.nil? && @related_tags.count > 0 %>
-    <h3>С данным тегом часто используют эти теги:</h3>
+    <h3>С тегом <span class="btn btn-default"><%= params[:tag] %></span> часто используют эти теги:</h3>
     <div id="tags">
       <% @related_tags.each do |tag, count| %>
           <%= link_to tag, tag_path(tag), class: 'btn btn-default' %>
       <% end %>
     </div>
     <hr />
+    <% elsif !params[:tag].nil? %>
+    <h3>Вопросы с тегом <span class="btn btn-default"><%= params[:tag] %></span>:</h3>
 <% end %>
 <table class="table table-striped" style="width: 100%;">
   <thead>
